@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lexus CPO / Tesla CP 庫存排行</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Taiwan CPO + Tesla Used</p>
+        <h1>Lexus CPO / Tesla CP 庫存排行</h1>
+      </div>
+      <div class="official-links">
+        <a class="official-link" href="https://www.lexuscpo.com.tw/Home/Search" target="_blank" rel="noreferrer">Lexus 官方庫存</a>
+        <a class="official-link secondary" href="https://www.tesla.com/zh_TW/inventory/used/m3" target="_blank" rel="noreferrer">Tesla 官方庫存</a>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="control-panel" aria-label="filters">
+        <label>
+          來源
+          <select id="sourceFilter">
+            <option value="">全部</option>
+            <option value="Lexus CPO">Lexus CPO</option>
+            <option value="Tesla">Tesla</option>
+          </select>
+        </label>
+        <label>
+          車系
+          <select id="seriesFilter">
+            <option value="">全部</option>
+          </select>
+        </label>
+        <label>
+          關鍵字
+          <input id="keywordFilter" type="search" placeholder="車型、據點、顏色">
+        </label>
+        <label>
+          最低年份
+          <input id="yearFilter" type="number" min="2010" max="2026" step="1" value="2018">
+        </label>
+        <label>
+          最高里程
+          <input id="mileageFilter" type="number" min="0" max="300000" step="5000" value="120000">
+        </label>
+        <button id="refreshButton" type="button">更新</button>
+      </section>
+
+      <section class="stats-grid" aria-label="summary">
+        <article>
+          <span>庫存數</span>
+          <strong id="totalCars">--</strong>
+        </article>
+        <article>
+          <span>最高 CP</span>
+          <strong id="bestCp">--</strong>
+        </article>
+        <article>
+          <span>平均折價</span>
+          <strong id="avgDiscount">--</strong>
+        </article>
+        <article>
+          <span>資料時間</span>
+          <strong id="updatedAt">--</strong>
+        </article>
+      </section>
+
+      <section class="ranking-layout">
+        <aside class="leaderboard" aria-label="top cars">
+          <div class="section-heading">
+            <p>Top Picks</p>
+            <h2>CP 值前五名</h2>
+          </div>
+          <div id="topList" class="top-list"></div>
+        </aside>
+
+        <section class="inventory-section" aria-label="inventory">
+          <div class="section-heading table-heading">
+            <div>
+              <p>Inventory</p>
+              <h2>由 CP 值高至低</h2>
+            </div>
+            <span id="visibleCount">--</span>
+          </div>
+          <div id="statusMessage" class="status">讀取官方庫存中...</div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>CP</th>
+                  <th>來源</th>
+                  <th>車款</th>
+                  <th>年份</th>
+                  <th>里程</th>
+                  <th>售價</th>
+                  <th>新車價格</th>
+                  <th>折價</th>
+                  <th>據點</th>
+                </tr>
+              </thead>
+              <tbody id="inventoryBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <template id="topCardTemplate">
+      <article class="top-card">
+        <img alt="">
+        <div>
+          <strong></strong>
+          <span></span>
+        </div>
+        <b></b>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

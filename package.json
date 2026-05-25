@@ -1,0 +1,12 @@
+{
+  "name": "lexus-cpo-cp-inventory",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local Lexus CPO inventory ranking website.",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
