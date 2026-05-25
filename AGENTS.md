@@ -20,8 +20,9 @@ This repository is the local workspace for the CAR project. Keep the setup frame
 ## Git
 
 - Local Git repository is initialized.
-- Default branch is intended to be `main`; verify after Windows file lock issues are cleared.
-- No remote is configured by default.
+- Default branch: `main`.
+- GitHub remote: `https://github.com/kevinchang0531/CAR.git`.
+- Public repository URL: `https://github.com/kevinchang0531/CAR`.
 
 ## Verification Checklist
 
