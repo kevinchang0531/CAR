@@ -123,7 +123,13 @@ function normalizeLexus(raw) {
 }
 
 function teslaModelName(raw) {
+  if (raw.model === "Model Y" || raw.model === "Model S" || raw.model === "Model X" || raw.model === "Model 3") {
+    return raw.model;
+  }
+
   const text = [
+    raw.model,
+    raw.trim,
     raw.TrimName,
     raw.Trim,
     raw.ModelName,
@@ -141,7 +147,7 @@ function teslaModelName(raw) {
 }
 
 function teslaNewPrice(raw, modelName) {
-  const trim = String(raw.TrimName || raw.Trim || raw.ADLEnabled || "").toLowerCase();
+  const trim = String(raw.trim || raw.TrimName || raw.Trim || raw.ADLEnabled || "").toLowerCase();
   if (modelName === "Model Y" && trim.includes("performance")) return TESLA_NEW_PRICE_BASELINE["Model Y Performance"];
   if (modelName === "Model Y" && trim.includes("long")) return TESLA_NEW_PRICE_BASELINE["Model Y Long Range"];
   if (modelName === "Model 3" && trim.includes("performance")) return TESLA_NEW_PRICE_BASELINE["Model 3 Performance"];
